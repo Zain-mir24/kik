@@ -55,7 +55,7 @@ function Login() {
                     onClick={(e) => (!name || !room ? e.preventDefault() : null)}
                     to="/mainpage">
                     {" "}
-                    <button style={buttonstyle}>Create your Kik Account</button>{" "}
+                    <button style={buttonstyle}>Enter your kik room</button>{" "}
                 </Link>
             </form>
         </div>
