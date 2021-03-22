@@ -1,5 +1,5 @@
 import "./App.css";
-import Login from "./Login";
+import Login from "./Login/Login";
 import Header from "./Header";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Mainpage from "./mainpage";
@@ -13,11 +13,11 @@ function App() {
       
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
+          <Route exact component={Login} path="/">
             <Header />
             <Login />
           </Route>
-          <Route path="/mainpage">
+          <Route path="/mainpage" component={Mainpage}>
             <Mainpage />
           </Route>
         </Switch>
