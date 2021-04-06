@@ -15,6 +15,22 @@ function chat({location}) {
     useEffect(()=>{
         const {name,room} = queryString.parse(location.search)
         socket = io(ENDPOINT)
+        setRoom(room)
+        setName(name)
+        socket.emit('join',{name,room},(error)=>{
+            if(error){
+                setFlag(1)
+                alert(error)
+            }
+        });
+
+    },[ENDPOINT,location.search])
+
+    useEffect(()=>{
+        socket.on('message',message=>{
+            setMessages(msg=>[...msg,message])
+        })
+        socket.on('')
 
     })
     return (
