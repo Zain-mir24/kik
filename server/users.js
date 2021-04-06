@@ -16,7 +16,11 @@ const addUsers=({id,name,room})=>{
     return {user}
 }
 //removing the user
-const removeUsers;
+const removeUsers=(id)=>{
+    const Index=user.findIndex((user)=>{
+        user.id===id
+    })
+};
 
 const getUsers;
 const getUsersinroom;
