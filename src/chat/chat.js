@@ -33,7 +33,9 @@ function Chat({location}) {
         socket.on('message',message=>{
             setMessages(msg=>[...msg,message])
         })
-        socket.on('')
+        socket.on("roomData",({users})=>{
+            setUsers(users)
+        })
 
     })
     return (
