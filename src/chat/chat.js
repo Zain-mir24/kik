@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM,{useState,useEffect} from 'react'
 import queryString from 'query-string'; 
 import io from 'socket.io-client'
+import Title from '../Title'
+import SendMessageForm from '../SendMessageForm'
+import MessageList from '../MessageList'
 import { Redirect } from 'react-router';
 let socket
-function chat({location}) {
+function Chat({location}) {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [users, setUsers] = useState('');
@@ -13,7 +16,7 @@ function chat({location}) {
     const [flag, setFlag]=useState(0);
     const ENDPOINT = 'https://localhost:3000/';
     useEffect(()=>{
-        const {name,room} = queryString.parse(location.search)
+        const {name,room} = queryString.parse()
         socket = io(ENDPOINT)
         setRoom(room)
         setName(name)
@@ -24,7 +27,7 @@ function chat({location}) {
             }
         });
 
-    },[ENDPOINT,location.search])
+    },[ENDPOINT])
 
     useEffect(()=>{
         socket.on('message',message=>{
@@ -35,10 +38,12 @@ function chat({location}) {
     })
     return (
         <div>
-
+         <Title />
+         <MessageList />
+         <SendMessageForm />
             
         </div>
     )
 }
 
-export default chat
+export default Chat
