@@ -1,24 +1,28 @@
-import React from 'react'
+import React from "react";
 const stylingchatList = {
-    height: "800px",
-    width: "100%",
-    backgroundColor: "#03a9f4",
-  };
-  const stylingSidebar = {
-    backgroundColor: "#3d5afe",
-    padding: "25px",
-    width: "10%",
-    height: "90%",
-    float: "left",
-  };
-  const messagedialogue={
-     width:"20%",
-    
-  }
-function Message() {
-    return (
-        <div style={stylingchatList}>
-             <div className="SideBar" style={stylingSidebar}>
+  height: "800px",
+  width: "100%",
+  backgroundColor: "#03a9f4",
+};
+const stylingSidebar = {
+  backgroundColor: "#3d5afe",
+  padding: "25px",
+  width: "10%",
+  height: "90%",
+  float: "left",
+};
+const messagedialogue = {
+  width: "20%",
+};
+function Message({message:{user,text},name}) {
+    let currentuser=false;
+    const trimmedName=name.trim().toLowerCase();
+    if(user === trimmedName){
+        currentuser=true
+    }
+  return (
+    <div style={stylingchatList}>
+      <div className="SideBar" style={stylingSidebar}>
         <h3>room</h3>
         <h4>our users</h4>
         <ul>
@@ -31,8 +35,8 @@ function Message() {
         </p>
         <p>message</p>
       </div>
-        </div>
-    )
+    </div>
+  );
 }
 
-export default Message
+export default Message;

@@ -47,8 +47,8 @@ function Chat({ location }) {
 
     return (
         <div>
-            <Title />
-            <MessageList message={messages} name={name}/>
+            <Title room={room}/>
+            <MessageList messages={messages} name={name}/>
             <SendMessageForm message={message} setMessage={setMessage} sendMessage={sendMessage}    />
         </div>
     );
