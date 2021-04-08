@@ -21,7 +21,8 @@ function Message({message:{user,text},name}) {
         currentuser=true
     }
   return (
-    <div style={stylingchatList}>
+    currentuser
+    ?( <div style={stylingchatList}>
       <div className="SideBar" style={stylingSidebar}>
         <h3>room</h3>
         <h4>our users</h4>
@@ -35,7 +36,24 @@ function Message({message:{user,text},name}) {
         </p>
         <p>message</p>
       </div>
-    </div>
+    </div>):(
+       <div style={stylingchatList}>
+       <div className="SideBar" style={stylingSidebar}>
+         <h3>room</h3>
+         <h4>our users</h4>
+         <ul>
+           <li>users</li>
+         </ul>
+       </div>
+       <div className="message" style={messagedialogue}>
+         <p>
+           <span className="message__name">username</span>
+         </p>
+         <p>message</p>
+       </div>
+     </div>
+    )
+   
   );
 }
 
