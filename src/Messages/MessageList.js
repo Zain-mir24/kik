@@ -15,7 +15,7 @@ const messagedialogue={
    width:"20%",
   
 }
-function MessageList({room}) {
+function MessageList({message,name}) {
   return (
     <div style={stylingchatList}>
       <div className="SideBar" style={stylingSidebar}>
