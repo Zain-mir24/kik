@@ -24,8 +24,15 @@ io.on('connect',(socket) =>{
 
     })
     socket.on('sendMessage',(message,callback)=>{
-    const user =getUser(socke.id)
+    const user =getUser(socket.id)
     io.to(user.room).emit('message',{user:user.name,text:message})
     callback()
     })
+
+    socket.on('disconnect',()=>{
+        const user=removeUsers(socket.id)
+        io.to(user.room).emit('message',{user:'admin',text:`${user.name} has left` })
+        io.to(user.room).emit('roomData', { room: user.room, users: getusersinroom(user.room)});
+    })
 })
+server.listen(process.env.PORT || 3000, () => console.log(`Server has started.`));

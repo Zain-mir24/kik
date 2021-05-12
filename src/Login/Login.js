@@ -4,16 +4,20 @@ const inputstyling = {
     marginTop: "20px",
     height: "50px",
     borderRadius: "25px",
+    borderBottom: "1px solid"
+    
 };
 const buttonstyle = {
     borderRadius: "25px",
+    backgroundColor: "red",
+    height:"100px"
 };
 
 const formstyling = {
     backgroundColor: "#03a9f4",
     marginLeft: "30%",
     marginRight: "30%",
-    height: "400px",
+    height: "500px",
 };
 const headerStyle = {};
 
