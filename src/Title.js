@@ -6,10 +6,8 @@ const headstyling={
 function Title({room}) {
     return (
         <div>
-            <div>
-                <h3>{room}</h3>
-            </div>
-            <h1 style={headstyling}>Kik Instant Chat app</h1>
+         
+            <h1 style={headstyling}>Kik Instant Chat app and the room is {room}</h1>
         </div>
     )
 }

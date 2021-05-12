@@ -24,9 +24,11 @@ const removeUsers=(id)=>{
         return users.splice(Index,1)[0]
     }
 };
-
+//finding the users
 const getUsers =(id)=>users.findIndex((user)=>{user.id===id});
+//adding them in the room
 const getusersinroom = (room) => {
     room =room.trim().toLowerCase()
     return users.filter((user) => user.room === room)
 }
+module.exports={addUsers,removeUsers,getUsers,getUsers,getusersinroom}

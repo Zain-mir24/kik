@@ -15,7 +15,7 @@ function Chat({ location }) {
     const [messages, setMessages] = useState([]);
     const [flag, setFlag] = useState(0);
     const ENDPOINT = "https://localhost:3000/";
-    useEffect(() => {
+    useEffect(()=> {
         const { name, room } = queryString.parse();
         socket = io(ENDPOINT);
         setRoom(room);
@@ -47,7 +47,7 @@ function Chat({ location }) {
 
     return (
         <div>
-            <Title room={room}/>
+            <Title roomno={room}/>
             <MessageList messages={messages} name={name}/>
             <SendMessageForm message={message} setMessage={setMessage} sendMessage={sendMessage}    />
         </div>
